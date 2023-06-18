@@ -1,0 +1,51 @@
+/* ZERA CSS*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+.cotainer-grid>* {
+    
+    min-height: 100px;
+    background-color:brown;
+    color: whitesmoke;
+
+}
+
+.cotainer-grid {
+
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 200px 1fr 1fr;
+    grid-template-rows: repeat(5, auto)
+}
+
+nav {
+    grid-column: 1 / 2;
+    grid-row: 1 / -1;
+   
+    
+}
+header {
+    grid-column: 2 / -1;
+}
+
+section {
+    height: 200px;
+}
+
+main {
+   height: 400px;
+    grid-column: 2 / -1;
+    grid-row: 3 / -1 ;
+}
+
+footer {
+    grid-column: 1 / -1;
+}
+
+
