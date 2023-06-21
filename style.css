@@ -11,6 +11,11 @@ body{
    
 }
 
+a{
+    text-decoration: none;
+    color: antiquewhite;
+}
+
 .container{
     display: flex; /*UM AO LADO DO OUTRO*/
     flex-direction: column;  /*MUDA DIREÇÃO DO FLEX PARA UM A BAIXO DO OUTRO*/
