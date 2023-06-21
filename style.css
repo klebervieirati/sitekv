@@ -29,13 +29,14 @@ button{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    color: #044302;
    
 }
 
 .foto-perfil{
     width: 300px;
     height: 300px;
-    border: 2px solid yellowgreen;
+    border: 10px solid #044302;
     border-radius: 200px;
 }
 
