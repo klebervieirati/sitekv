@@ -1,0 +1,39 @@
+* {
+    margin: 0px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.menu {
+    top: 500px;
+    width: 100%;
+}
+
+.container-menu {
+    position: fixed;
+    
+    width: 100vw;
+}
+
+.navbar-collapse {
+    gap: 20px;
+    justify-content: flex-end;
+}
+
+#clientes {
+    padding: 50px;
+    height: 100vh;
+   
+    border: 10px solid blue;
+    background-image: linear-gradient(rgba(29, 29, 29, 0.8), rgba(29, 29, 29, 0.8)), url(./img/fundopizza.jpg);
+   
+
+}
+
+#produtos {
+    padding: 50px;
+    height: 100vh;
+    
+    border: 10px solid chartreuse;
+}
