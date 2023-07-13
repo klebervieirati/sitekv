@@ -1,0 +1,230 @@
+
+
+.projetoskv {
+
+    min-width: 900px;
+    height: 100vh;
+   
+  
+    
+}
+@media (max-width: 1400px) {
+    .projetoskv {
+        height: 100%;
+      
+    }
+
+}
+
+
+
+.container-Slidekv {
+    top: 56px;
+    max-width: 100%;
+    position: relative;
+    margin: auto;
+    /*FICAR NO CENTRO DA TELA*/
+    z-index: 1;
+    box-shadow: 0px 10px 10px 0px;
+
+}
+
+.slidekv {
+    display: none;
+
+
+
+}
+
+.imgSlidekv {
+    vertical-align: middle;
+    width: 100%;
+    height: auto;
+
+
+    /*POSICIONAR AS IMAGENS NO MEIO*/
+
+}
+
+.btnAnteriorkv,
+.btnProximokv {
+    font-size: 90px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 10px;
+    margin-top: -22px;
+    transition: 0.4s ease;
+    user-select: none;
+}
+
+.btnAnteriorkv {
+    left: 0;
+    border-radius: 0 10px 10px 0;
+}
+
+.btnProximokv {
+    right: 0;
+    border-radius: 10px 0 0 10px;
+}
+
+.btnAnteriorkv:hover,
+.btnProximokv:hover,
+.textoSlide:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+
+}
+
+.textoSlide {
+
+    color: #fff;
+    background-color: rgb(19, 14, 15);
+    font-size: 25px;
+    padding: 8px 12px;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    transition: 0.4s ease;
+    bottom: 0px;
+
+}
+
+.numeroSlide {
+    color: #fff;
+    font-size: 20px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+
+}
+
+.indicador {
+    position: relative;
+    cursor: pointer;
+    height: 20px;
+    width: 50px;
+    margin: 10px;
+    margin-top: 70px;
+    /*background-color:#A42A15;*/
+    background: radial-gradient(97.61% 55.99% at 50.15% 44.01%, rgba(22, 81, 123, 0.69) 0%, #1E1A36 100%);
+
+    border-radius: 10px;
+    display: inline-block;
+    transition: background-color 0.5s ease;
+    box-shadow: 0px 10px 10px 0px;
+
+}
+
+.ativo,
+.indicador:hover {
+    background-color: #fff;
+}
+
+/*ANIMAÇÃO SLIDES*/
+
+/*fade = desaparecer*/
+.fadekv {
+    /*EFETOS NA TROCA DOS SLAIDES*/
+
+    animation-name: fadekv;
+    animation-duration: 1.3s;
+    /*PARA ALGUNS TIPO DE NAVEGADOR*/
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.3s;
+}
+
+@keyframes fade {
+    from {
+        margin-left: 100%;
+        opacity: 1;
+
+    }
+
+    to {
+        margin-right: 100%;
+        opacity: 0.4;
+
+    }
+
+}
+
+/*@keyframes fade {
+    from{opacity: .4}
+    to{opacity: 1}
+   
+}
+ /*PARA ALGUNS TIPO DE NAVEGADOR*/
+@-webkit-keyframes fade {
+
+    from {
+        margin-left: 100%;
+        opacity: .4;
+
+    }
+
+    to {
+        margin-right: 100%;
+        opacity: 1;
+
+    }
+
+}
+
+.lista-proj {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+
+
+@media (max-width: 800px) {
+    .lista-proj {
+
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+
+    }
+   
+}
+
+@media (max-width: 800px) {
+    .lista-proj .card-proj {
+        width: 100%;
+
+    }
+
+}
+
+.card-proj {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 100px;
+    border: 2px solid wheat;
+    border-radius: 10px;
+    box-shadow: 10px 10px 20px;
+    transition: all 300ms ease-in-out;
+    background: radial-gradient(97.61% 55.99% at 50.15% 44.01%, rgba(22, 81, 123, 0.69) 0%, #1E1A36 100%)
+
+}
+
+.card-proj:hover {
+    transform: scale(1.20);
+    box-shadow: -10px 10px 20px rgba(0, 0, 0, .6);
+}
+
+.card-proj a{
+    text-decoration: none;
+    font-weight: bold;
+    color: wheat;
+
+}
+

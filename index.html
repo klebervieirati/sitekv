@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="styleSlide.css" />
+  <script src="jsSlide.js" defer></script>
+
+  <link rel="stylesheet" href="bootstrap.min.css" />
+
+  <script src="bootstrap.bundle.min.js"></script>
+</head>
+
+<body style="
+      background: radial-gradient(
+        97.61% 55.99% at 50.15% 44.01%,
+        rgba(22, 81, 123, 0.69) 0%,
+        #1e1a36 100%
+      );
+    ">
+  <header class="menu">
+    <div class="container-menu">
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+
+          <a class="navbar-brand" href="#"><img class="logokv" src="img/logo.png" alt=""></a>
+
+
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown"
+            aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+            <a class="navbar-brand" href="#projetoskv">Home</a>
+            <ul class="navbar-nav">
+              <li class="nav-item dropdown">
+                <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                  Perfil
+                </button>
+                <ul class="dropdown-menu dropdown-menu-dark">
+                  <li>
+                    <a class="dropdown-item" href="#perfilkv">Sobre Mim</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#perfilkv1">Sobre Mim 1</a>
+                  </li>
+
+                </ul>
+              </li>
+            </ul>
+
+            <ul class="navbar-nav">
+              <li class="nav-item dropdown">
+                <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                  Vazio
+                </button>
+                <ul class="dropdown-menu dropdown-menu-dark">
+                  <li>
+                    <a class="dropdown-item" href="">vazio1</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#">vazio2</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#">vazio3</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+
+
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <div class="projetoskv" id="projetoskv">
+    <section class="container-Slidekv">
+      <div class="slidekv">
+        <div class="numeroSlide">1/4</div>
+        <img class="imgSlidekv fadekv" src="img/1.png" alt="" />
+        <div class="textoSlide">Projeto Banco de Horas RH</div>
+      </div>
+      <div class="slidekv">
+        <div class="numeroSlide">2/4</div>
+        <img class="imgSlidekv fadekv" src="img/2.png" alt="" />
+        <div class="textoSlide">Projeto Agenda de Tarefas</div>
+      </div>
+      <div class="slidekv">
+        <div class="numeroSlide">3/4</div>
+        <img class="imgSlidekv fadekv" src="img/3.png" alt="" />
+        <div class="textoSlide">Kleber Vieira-slide 3</div>
+      </div>
+      <div class="slidekv">
+        <div class="numeroSlide">4/4</div>
+        <img class="imgSlidekv fadekv" src="img/4.png" alt="" />
+        <div class="textoSlide">Kleber Vieira-slide 4</div>
+      </div>
+
+      <a class="btnAnteriorkv" onclick="mudarSlide(-1)"><img width="50" height="50"
+          src="https://img.icons8.com/3d-fluency/94/left.png" alt="left" /></a>
+      <a class="btnProximokv" onclick="mudarSlide(1)"><img width="50" height="50"
+          src="https://img.icons8.com/3d-fluency/94/right.png" alt="right" /></a>
+    </section>
+
+    <section style="text-align: center">
+      <span class="indicador" onclick="slideAtual(1)"></span>
+      <span class="indicador" onclick="slideAtual(2)"></span>
+      <span class="indicador" onclick="slideAtual(3)"></span>
+      <span class="indicador" onclick="slideAtual(4)"></span>
+    </section>
+
+    <div class="lista-proj">
+      <div class="card-proj">
+        <a href="https://web-production-f53d.up.railway.app/">BANCO DE HORAS</a>
+      </div>
+      <div class="card-proj">
+        <a href="agenda/index.html">AGENDA DE TAREFAS</a>
+      </div>
+      <div class="card-proj">
+        <a href="">PROJETO-3</a>
+      </div>
+      <div class="card-proj">
+        <a href="">PROJETO-3</a>
+      </div>
+      <div class="card-proj">
+        <a href="">PROJETO-3</a>
+      </div>
+      <div class="card-proj">
+        <a href="">PROJETO-3</a>
+      </div>
+
+    </div>
+  </div>
+
+  <section id="perfilkv">
+    <div class="titulo-perfilkv">
+      <h1>TITULO PERFIL</h1>
+
+    </div>
+
+    <div class="container-perfil">
+      <div class="card-perfil">
+        <img class="img-perfil" src="img/fotoperfil1.png" alt="">
+      </div>
+      <div class="card-perfil">
+        <img class="img-perfil" src="img/arara.png" alt="">
+      </div>
+      <div class="card-perfil">
+        <img class="img-perfil" src="img/logo.png" alt="">
+      </div>
+    </div>
+  </section>
+
+  <section id="perfilkv1">
+    <div class="titulo-perfilkv-1">
+      <h1>TITULO PERFIL</h1>
+
+    </div>
+    <br>
+    <div class="container-perfil-1">
+
+      <div class="card-perfil-1">
+        <img class="img-perfil-1" src="/img/laco1.png" alt="">
+      </div>
+      <div class="card-perfil-1">
+        <img class="img-perfil-1" src="/img/laco2.png" alt="">
+      </div>
+
+      <div class="card-perfil-1">
+        <img class="img-perfil-1" src="/img/laco1.png" alt="">
+      </div>
+      <div class="card-perfil-1">
+        <img class="img-perfil-1" src="/img/laco2.png" alt="">
+      </div>
+
+    </div>
+  </section>
+</body>
+
+</html>
