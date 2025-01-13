@@ -123,7 +123,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 66); // Debounce de 66ms
     });
 
-    
+    // NAVEGAÇÃO RESPONSIVA
+    const header = document.querySelector('header');
+    let lastScroll = 0;
+    let scrollTimeout;
 
     // Função para controlar a visibilidade do header
     function handleScroll() {
