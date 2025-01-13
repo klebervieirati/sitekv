@@ -1,6 +1,11 @@
 /* ========== VARIÁVEIS DE CORES DOS TEMAS ========== */
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth; /* Habilita o scroll suave */
+}
+
+body {
+    overflow-x: hidden; /* Oculta a barra de rolagem horizontal */
+    width: 100%; /* Define o tamanho da página */
 }
 
 /* Tema Claro - Cores padrão */
