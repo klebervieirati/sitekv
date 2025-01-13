@@ -54,37 +54,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-    // Função para verificar se um elemento está visível na viewport
-    function isElementInViewport(el) {
-        const rect = el.getBoundingClientRect();
-        return (
-            rect.top >= 0 &&
-            rect.left >= 0 &&
-            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-        );
-    }
 
 
-
-    // Função para verificar e iniciar a animação dos contadores
-    function checkCounters() {
-        if (!hasAnimated && isElementInViewport(document.querySelector('.counter-container'))) {
-            // Adiciona a classe visible aos itens
-            counterItems.forEach(item => item.classList.add('visible'));
-            // Inicia a animação de cada contador
-            counters.forEach(counter => animateCounter(counter));
-            // Marca que já animou
-            hasAnimated = true;
-            // Remove o listener de scroll
-            window.removeEventListener('scroll', checkCounters);
-        }
-    }
-
-    // Adiciona o listener de scroll
-    window.addEventListener('scroll', checkCounters);
-    // Verifica inicialmente
-    checkCounters();
 
     // EFEITO PARALLAX
     // Seleciona os elementos do parallax
