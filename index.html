@@ -1,81 +1,251 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-
+<html lang="pt-BR" data-theme="light">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="styleSlide.css" />
-  <script src="jsSlide.js" defer></script>
-
-  <link rel="stylesheet" href="bootstrap.min.css" />
-
-  <script src="bootstrap.bundle.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Responsivo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <header class="menu">
-    <div class="container-menu">
-      <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container-fluid">
-
-          <a class="navbar-brand" href="#"><img class="logokv" src="img/logo.png" alt=""></a>
-
-
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown"
-            aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
-            <a class="navbar-brand" href="#projetoskv">Homekv</a>
-            <ul class="navbar-nav">
-              <li class="nav-item dropdown">
-                <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                  Perfil
-                </button>
-                <ul class="dropdown-menu dropdown-menu-dark">
-                  <li>
-                    <a class="dropdown-item" href="#perfilkv">Sobre Mim</a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#perfilkv1">Sobre Mim 1</a>
-                  </li>
-
-                </ul>
-              </li>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>Logo</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li class="has-submenu">
+                    <a href="#sobre">Sobre <i class="fas fa-chevron-down"></i></a>
+                    <ul class="submenu">
+                        <li><a href="#missao">Missão</a></li>
+                        <li><a href="#visao">Visão</a></li>
+                        <li><a href="#valores">Valores</a></li>
+                    </ul>
+                </li>
+                <li class="has-submenu">
+                    <a href="#servicos">Serviços <i class="fas fa-chevron-down"></i></a>
+                    <ul class="submenu">
+                        <li><a href="#web">Web Design</a></li>
+                        <li><a href="#app">Aplicativos</a></li>
+                        <li><a href="#marketing">Marketing</a></li>
+                    </ul>
+                </li>
+                <li class="has-submenu">
+                    <a href="#contato">Contato <i class="fas fa-chevron-down"></i></a>
+                    <ul class="submenu">
+                        <li><a href="#email">Email</a></li>
+                        <li><a href="#telefone">Telefone</a></li>
+                        <li><a href="#endereco">Endereço</a></li>
+                    </ul>
+                </li>
             </ul>
+            <div class="theme-selector">
+                <select id="theme-select">
+                    <option value="light">Tema Claro</option>
+                    <option value="dark">Tema Escuro</option>
+                    <option value="blue">Tema Azul</option>
+                    <option value="green">Tema Verde</option>
+                </select>
+            </div>
+            <div class="menu-hamburguer">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
 
-            <ul class="navbar-nav">
-              <li class="nav-item dropdown">
-                <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                  Vazio
+    <main>
+        <!-- <section id="home" class="section">
+            <h2>Bem-vindo ao nosso site</h2>
+            <div class="carousel">
+                <div class="carousel-container">
+                    <div class="carousel-slide">
+                        <img src="https://picsum.photos/800/400?random=1" alt="Imagem 1">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://picsum.photos/800/400?random=2" alt="Imagem 2">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://picsum.photos/800/400?random=3" alt="Imagem 3">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://picsum.photos/800/400?random=4" alt="Imagem 4">
+                    </div>
+                </div>
+                <button class="carousel-button prev">
+                    <i class="fas fa-chevron-left"></i>
                 </button>
-                <ul class="dropdown-menu dropdown-menu-dark">
-                  <li>
-                    <a class="dropdown-item" href="">vazio1</a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#">vazio2</a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#">vazio3</a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
+                <button class="carousel-button next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <div class="carousel-dots">
+                    <span class="dot active" data-slide="0"></span>
+                    <span class="dot" data-slide="1"></span>
+                    <span class="dot" data-slide="2"></span>
+                    <span class="dot" data-slide="3"></span>
+                </div>
+            </div>
+        </section> -->
 
+        <!-- <section id="sobre" class="section parallax-section">
+            <div class="parallax-bg"></div>
+            <div class="parallax-content">
+                <h2>Sobre Nós</h2>
+                <div class="about-container">
+                    <div class="about-text">
+                        <p>Somos uma empresa dedicada à excelência e inovação. Nossa missão é proporcionar as melhores soluções para nossos clientes.</p>
+                        <p>Com anos de experiência no mercado, nossa equipe está preparada para enfrentar qualquer desafio.</p>
+                    </div>
+                    <div class="about-cards">
+                        <div class="about-card">
+                            <i class="fas fa-rocket"></i>
+                            <h3>Missão</h3>
+                            <p>Entregar soluções inovadoras que transformam negócios.</p>
+                        </div>
+                        <div class="about-card">
+                            <i class="fas fa-eye"></i>
+                            <h3>Visão</h3>
+                            <p>Ser referência em inovação e qualidade no mercado.</p>
+                        </div>
+                        <div class="about-card">
+                            <i class="fas fa-heart"></i>
+                            <h3>Valores</h3>
+                            <p>Comprometimento, ética e excelência em tudo que fazemos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> -->
 
-          </div>
-        </div>
-      </nav>
-    </div>
-  </header>
+        <!-- <section id="servicos" class="section">
+            <h2>Nossos Serviços</h2>
+            <div class="counter-container">
+                <div class="counter-item">
+                    <i class="fas fa-users"></i>
+                    <div class="counter" data-target="1500">0</div>
+                    <h3>Clientes Satisfeitos</h3>
+                </div>
+                <div class="counter-item">
+                    <i class="fas fa-project-diagram"></i>
+                    <div class="counter" data-target="150">0</div>
+                    <h3>Projetos Concluídos</h3>
+                </div>
+                <div class="counter-item">
+                    <i class="fas fa-award"></i>
+                    <div class="counter" data-target="50">0</div>
+                    <h3>Prêmios Recebidos</h3>
+                </div>
+                <div class="counter-item">
+                    <i class="fas fa-clock"></i>
+                    <div class="counter" data-target="10">0</div>
+                    <h3>Anos de Experiência</h3>
+                </div>
+            </div>
+        </section> -->
+<!-- 
+        <section id="visualizador" class="section viewer-section">
+            <h2>Visualizador 3D</h2>
+            <div class="viewer-container">
+                <div class="viewer-3d">
+                    <div class="viewer-wrapper">
+                        <div class="cube">
+                            <div class="face front">
+                                <img src="https://picsum.photos/800/800?random=1" alt="Frente">
+                            </div>
+                            <div class="face back">
+                                <img src="https://picsum.photos/800/800?random=2" alt="Trás">
+                            </div>
+                            <div class="face right">
+                                <img src="https://picsum.photos/800/800?random=3" alt="Direita">
+                            </div>
+                            <div class="face left">
+                                <img src="https://picsum.photos/800/800?random=4" alt="Esquerda">
+                            </div>
+                            <div class="face top">
+                                <img src="https://picsum.photos/800/800?random=5" alt="Topo">
+                            </div>
+                            <div class="face bottom">
+                                <img src="https://picsum.photos/800/800?random=6" alt="Base">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="viewer-controls">
+                    <div class="rotation-control">
+                        <label>Rotação X:
+                            <input type="range" class="rotation-input" data-axis="x" min="-180" max="180" value="0">
+                            <span class="rotation-value">0°</span>
+                        </label>
+                    </div>
+                    <div class="rotation-control">
+                        <label>Rotação Y:
+                            <input type="range" class="rotation-input" data-axis="y" min="-180" max="180" value="0">
+                            <span class="rotation-value">0°</span>
+                        </label>
+                    </div>
+                    <div class="rotation-control">
+                        <label>Rotação Z:
+                            <input type="range" class="rotation-input" data-axis="z" min="-180" max="180" value="0">
+                            <span class="rotation-value">0°</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="viewer-buttons">
+                    <button class="reset-button">
+                        <i class="fas fa-sync-alt"></i> Resetar
+                    </button>
+                    <button class="auto-rotate-button">
+                        <i class="fas fa-play"></i> Auto-Rotação
+                    </button>
+                </div>
+                <div class="viewer-info">
+                    <p>Arraste o objeto ou use os controles para girar em 3D</p>
+                </div>
+            </div>
+        </section> -->
 
+        <!-- <section id="contato" class="section">
+            <h2>Contato</h2>
+            <div class="table-container">
+                <table class="responsive-table">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Telefone</th>
+                            <th>Cidade</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Nome">João Silva</td>
+                            <td data-label="Telefone">(11) 98765-4321</td>
+                            <td data-label="Cidade">São Paulo</td>
+                            <td data-label="Estado">SP</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Nome">Maria Santos</td>
+                            <td data-label="Telefone">(21) 98765-4321</td>
+                            <td data-label="Cidade">Rio de Janeiro</td>
+                            <td data-label="Estado">RJ</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Nome">Pedro Oliveira</td>
+                            <td data-label="Telefone">(31) 98765-4321</td>
+                            <td data-label="Cidade">Belo Horizonte</td>
+                            <td data-label="Estado">MG</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section> -->
+    </main>
 
-
+    <footer>
+        <p>&copy; 2024 Seu Site. Todos os direitos reservados.</p>
+    </footer>
+    <script src="script.js"></script>
 </body>
-
 </html>

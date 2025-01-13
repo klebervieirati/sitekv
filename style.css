@@ -1,0 +1,858 @@
+/* ========== VARIÁVEIS DE CORES DOS TEMAS ========== */
+/* Tema Claro - Cores padrão */
+:root[data-theme="light"] {
+    --bg-color: #ffffff;      /* Cor de fundo principal */
+    --text-color: #333333;    /* Cor do texto principal */
+    --header-bg: #333333;     /* Cor de fundo do cabeçalho */
+    --header-text: #ffffff;   /* Cor do texto do cabeçalho */
+    --accent-color: #00ff88;  /* Cor de destaque/ação */
+    --table-stripe: #f8f8f8;  /* Cor das linhas alternadas da tabela */
+    --table-hover: #f1f1f1;   /* Cor de hover da tabela */
+    --shadow-color: rgba(0, 0, 0, 0.1); /* Cor das sombras */
+}
+
+/* Tema Escuro */
+:root[data-theme="dark"] {
+    --bg-color: #1a1a1a;      /* Fundo escuro */
+    --text-color: #ffffff;    /* Texto claro */
+    --header-bg: #000000;     /* Cabeçalho mais escuro */
+    --header-text: #ffffff;   /* Texto do cabeçalho claro */
+    --accent-color: #00ff88;  /* Mesma cor de destaque */
+    --table-stripe: #2a2a2a;  /* Linhas da tabela mais escuras */
+    --table-hover: #333333;   /* Hover mais escuro */
+    --shadow-color: rgba(255, 255, 255, 0.1); /* Sombras claras */
+}
+
+/* Tema Azul */
+:root[data-theme="blue"] {
+    --bg-color: #f0f8ff;      /* Fundo azul claro */
+    --text-color: #1a1a1a;    /* Texto escuro */
+    --header-bg: #1e90ff;     /* Cabeçalho azul */
+    --header-text: #ffffff;   /* Texto do cabeçalho claro */
+    --accent-color: #00bfff;  /* Destaque azul claro */
+    --table-stripe: #e6f3ff;  /* Linhas da tabela azul claro */
+    --table-hover: #cce6ff;   /* Hover azul mais claro */
+    --shadow-color: rgba(30, 144, 255, 0.2); /* Sombras azuis */
+}
+
+/* Tema Verde */
+:root[data-theme="green"] {
+    --bg-color: #f0fff0;      /* Fundo verde claro */
+    --text-color: #1a1a1a;    /* Texto escuro */
+    --header-bg: #2e8b57;     /* Cabeçalho verde */
+    --header-text: #ffffff;   /* Texto do cabeçalho claro */
+    --accent-color: #3cb371;  /* Destaque verde médio */
+    --table-stripe: #e6ffe6;  /* Linhas da tabela verde claro */
+    --table-hover: #ccffcc;   /* Hover verde mais claro */
+    --shadow-color: rgba(46, 139, 87, 0.2); /* Sombras verdes */
+}
+
+/* ========== SELETOR DE TEMA ========== */
+/* Container do seletor */
+.theme-selector {
+    margin-right: 1rem;
+}
+
+/* Estilo do select */
+#theme-select {
+    padding: 0.5rem;
+    border-radius: 4px;
+    border: 1px solid var(--header-text);
+    background-color: transparent;
+    color: var(--header-text);
+    cursor: pointer;
+}
+
+/* Estilo das opções do select */
+#theme-select option {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* ========== ESTILOS GLOBAIS ========== */
+/* Reset de margens e padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos base do corpo */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* ========== HEADER E NAVEGAÇÃO ========== */
+/* Cabeçalho fixo */
+header {
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Header escondido */
+header.nav-hidden {
+    transform: translateY(-100%);
+}
+
+/* Container da navegação */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Logo */
+.logo h1 {
+    font-size: 1.5rem;
+}
+
+/* Links de navegação */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+/* Estilo dos links */
+.nav-links a {
+    color: var(--header-text);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Hover dos links */
+.nav-links a:hover {
+    color: var(--accent-color);
+}
+
+/* Item com submenu */
+.has-submenu {
+    position: relative;
+}
+
+/* Ícone do submenu */
+.has-submenu i {
+    font-size: 0.8em;
+    margin-left: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+/* Rotação do ícone quando submenu está ativo */
+.has-submenu:hover i {
+    transform: rotate(180deg);
+}
+
+/* Submenu */
+.submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--header-bg);
+    min-width: 200px;
+    padding: 1rem 0;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 2px 5px var(--shadow-color);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+/* Submenu ativo */
+.has-submenu:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Links do submenu */
+.submenu li {
+    padding: 0.5rem 1rem;
+}
+
+.submenu a {
+    color: var(--header-text);
+    text-decoration: none;
+    display: block;
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.submenu a:hover {
+    color: var(--accent-color);
+    padding-left: 1.5rem;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Responsividade dos submenus */
+@media screen and (max-width: 768px) {
+    .submenu {
+        position: static;
+        background-color: rgba(0, 0, 0, 0.2);
+        min-width: 100%;
+        padding: 0;
+        box-shadow: none;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        display: none;
+    }
+
+    .has-submenu:hover .submenu {
+        display: block;
+    }
+
+    .submenu li {
+        padding: 0;
+    }
+
+    .submenu a {
+        padding: 0.5rem 2rem;
+    }
+
+    .has-submenu i {
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .has-submenu:hover i {
+        transform: translateY(-50%) rotate(180deg);
+    }
+}
+
+/* ========== MENU HAMBURGUER ========== */
+/* Container do menu */
+.menu-hamburguer {
+    display: none; /* Escondido em desktop */
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+/* Barras do menu */
+.menu-hamburguer span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--header-text);
+    transition: all 0.3s ease-in-out;
+    transform-origin: center;
+}
+
+/* Animações das barras */
+.span-1 { transform: rotate(45deg) translate(5px, 5px); }
+.span-2 { opacity: 0; }
+.span-3 { transform: rotate(-45deg) translate(7px, -7px); }
+
+/* ========== CONTEÚDO PRINCIPAL ========== */
+/* Container principal */
+main {
+    margin-top: 80px; /* Espaço para o header fixo */
+    padding: 20px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Seções */
+.section {
+    padding: 3rem 1rem;
+    min-height: 50vh;
+}
+
+/* Títulos das seções */
+.section h2 {
+    margin-bottom: 1rem;
+}
+
+/* ========== FOOTER ========== */
+footer {
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+/* Media Queries para Responsividade */
+@media screen and (max-width: 768px) {
+    /* Menu mobile */
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background-color: #333;
+        flex-direction: column;
+        padding: 1rem;
+        text-align: center;
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    /* Menu ativo */
+    .nav-links.active {
+        display: flex;
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    /* Espaçamento dos links */
+    .nav-links li {
+        margin: 1rem 0;
+    }
+
+    /* Mostra menu hamburguer */
+    .menu-hamburguer {
+        display: flex;
+    }
+
+    /* Ajuste do padding das seções */
+    .section {
+        padding: 2rem 1rem;
+    }
+}
+
+/* ========== TABELA RESPONSIVA ========== */
+/* Container da tabela com scroll horizontal */
+.table-container {
+    overflow-x: auto;
+    margin: 2rem 0;
+    box-shadow: 0 0 20px var(--shadow-color);
+    border-radius: 8px;
+}
+
+/* Estilo base da tabela */
+.responsive-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--bg-color);
+}
+
+/* Células da tabela */
+.responsive-table th,
+.responsive-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--text-color);
+}
+
+/* Cabeçalho da tabela */
+.responsive-table th {
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    font-weight: bold;
+}
+
+/* Linhas zebradas */
+.responsive-table tr:nth-child(even) {
+    background-color: var(--table-stripe);
+}
+
+/* Hover nas linhas */
+.responsive-table tr:hover {
+    background-color: var(--table-hover);
+}
+
+/* ========== CARROSSEL ========== */
+/* Container do carrossel */
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 2rem auto;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 0 20px var(--shadow-color);
+    touch-action: pan-y pinch-zoom;
+}
+
+/* Container dos slides */
+.carousel-container {
+    display: flex;
+    transition: transform 0.3s ease-out;
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+/* Estado ativo do container */
+.carousel-container:active {
+    cursor: grabbing;
+}
+
+/* Slides individuais */
+.carousel-slide {
+    min-width: 100%;
+    position: relative;
+    pointer-events: none;
+}
+
+/* Imagens dos slides */
+.carousel-slide img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    pointer-events: none;
+    user-drag: none;
+    -webkit-user-drag: none;
+}
+
+/* Botões de navegação */
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Hover nos botões */
+.carousel-button:hover {
+    opacity: 1;
+}
+
+/* Posicionamento dos botões */
+.carousel-button.prev { left: 10px; }
+.carousel-button.next { right: 10px; }
+
+/* Indicadores de slide (dots) */
+.carousel-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 2;
+}
+
+/* Dots individuais */
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--header-text);
+    opacity: 0.5;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+/* Dot ativo */
+.dot.active {
+    opacity: 1;
+}
+
+/* ========== CONTADORES ========== */
+/* Grid dos contadores */
+.counter-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    text-align: center;
+}
+
+/* Cards dos contadores */
+.counter-item {
+    background-color: var(--bg-color);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 20px var(--shadow-color);
+    transition: transform 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* Hover nos cards */
+.counter-item:hover {
+    transform: translateY(-5px);
+}
+
+/* Ícones dos contadores */
+.counter-item i {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+/* Números dos contadores */
+.counter {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--header-bg);
+    margin: 1rem 0;
+}
+
+/* Títulos dos contadores */
+.counter-item h3 {
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+/* Animação de entrada */
+.counter-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ========== PARALLAX ========== */
+/* Seção com parallax */
+.parallax-section {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    padding: 0;
+}
+
+/* Fundo com parallax */
+.parallax-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120%;
+    background-image: url('https://picsum.photos/1920/1080?random=10');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    filter: brightness(0.3);
+    z-index: 1;
+}
+
+/* Conteúdo sobre o parallax */
+.parallax-content {
+    position: relative;
+    z-index: 2;
+    padding: 4rem 2rem;
+    color: var(--header-text);
+}
+
+/* Container do conteúdo */
+.about-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Texto sobre */
+.about-text {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+/* Parágrafos */
+.about-text p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    line-height: 1.8;
+}
+
+/* Grid de cards */
+.about-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+/* Cards com efeito vidro */
+.about-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Hover nos cards */
+.about-card:hover {
+    transform: translateY(-10px);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* ========== VISUALIZADOR 3D ========== */
+/* Container do visualizador */
+.viewer-3d {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    perspective: 1000px;
+    margin-bottom: 2rem;
+    cursor: grab;
+}
+
+/* Estado ativo */
+.viewer-3d:active {
+    cursor: grabbing;
+}
+
+/* Wrapper do cubo */
+.viewer-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease-out;
+}
+
+/* Cubo 3D */
+.cube {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+/* Faces do cubo */
+.face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    overflow: hidden;
+}
+
+/* Imagens nas faces */
+.face img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+/* Posicionamento das faces */
+.front  { transform: translateZ(calc(var(--cube-size) / 2)); }
+.back   { transform: rotateY(180deg) translateZ(calc(var(--cube-size) / 2)); }
+.right  { transform: rotateY(90deg) translateZ(calc(var(--cube-size) / 2)); }
+.left   { transform: rotateY(-90deg) translateZ(calc(var(--cube-size) / 2)); }
+.top    { transform: rotateX(90deg) translateZ(calc(var(--cube-size) / 2)); }
+.bottom { transform: rotateX(-90deg) translateZ(calc(var(--cube-size) / 2)); }
+
+/* Controles do visualizador */
+.viewer-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem;
+    background-color: var(--header-bg);
+    border-radius: 8px;
+    margin-top: 1rem;
+}
+
+/* Controles de rotação */
+.rotation-control {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--header-text);
+}
+
+/* Labels dos controles */
+.rotation-control label {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+}
+
+/* Sliders de rotação */
+.rotation-input {
+    flex: 1;
+    height: 4px;
+    -webkit-appearance: none;
+    background: var(--header-text);
+    border-radius: 2px;
+    outline: none;
+}
+
+/* Thumb dos sliders */
+.rotation-input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+/* Hover no thumb */
+.rotation-input::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+/* Valor da rotação */
+.rotation-value {
+    min-width: 50px;
+    text-align: right;
+}
+
+/* Botões do visualizador */
+.viewer-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+/* Estilo dos botões */
+.viewer-buttons button {
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+/* Hover nos botões */
+.viewer-buttons button:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+/* ========== RESPONSIVIDADE ========== */
+/* Tablets e telas médias */
+@media screen and (max-width: 768px) {
+    /* Ajustes do carrossel */
+    .carousel {
+        margin: 1rem -20px;
+        border-radius: 0;
+    }
+
+    .carousel-slide img {
+        height: 300px;
+    }
+
+    .carousel-button {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+
+    .dot {
+        width: 10px;
+        height: 10px;
+    }
+
+    /* Ajustes do parallax */
+    .parallax-bg {
+        background-attachment: scroll;
+    }
+
+    .parallax-content {
+        padding: 3rem 1rem;
+    }
+
+    /* Ajustes dos contadores */
+    .counter-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    /* Ajustes do visualizador 3D */
+    .viewer-controls {
+        padding: 1rem;
+    }
+
+    .rotation-control {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .rotation-control label {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .rotation-value {
+        text-align: center;
+    }
+
+    .viewer-buttons {
+        flex-direction: column;
+    }
+
+    .viewer-buttons button {
+        width: 100%;
+    }
+}
+
+/* Smartphones e telas pequenas */
+@media screen and (max-width: 480px) {
+    /* Ajustes do carrossel */
+    .carousel-slide img {
+        height: 250px;
+    }
+
+    .carousel-button {
+        width: 30px;
+        height: 30px;
+        font-size: 0.8rem;
+    }
+
+    .carousel-dots {
+        bottom: 10px;
+    }
+
+    .dot {
+        width: 8px;
+        height: 8px;
+    }
+
+    /* Ajustes dos contadores */
+    .counter-container {
+        grid-template-columns: 1fr;
+    }
+
+    /* Ajustes do visualizador 3D */
+    :root {
+        --cube-size: 250px;
+    }
+}
+
+/* Variável para o tamanho do cubo */
+:root {
+    --cube-size: 300px;
+}
+
+@media screen and (max-width: 480px) {
+    :root {
+        --cube-size: 250px;
+    }
+}
