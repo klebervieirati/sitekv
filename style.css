@@ -1,4 +1,8 @@
 /* ========== VARIÁVEIS DE CORES DOS TEMAS ========== */
+html {
+    scroll-behavior: smooth;
+}
+
 /* Tema Claro - Cores padrão */
 :root[data-theme="light"] {
     --bg-color: #ffffff;      /* Cor de fundo principal */
