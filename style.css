@@ -530,6 +530,9 @@ footer {
     min-height: 100vh;
     overflow: hidden;
     padding: 0;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
 }
 
 /* Fundo com parallax */
@@ -553,14 +556,15 @@ footer {
     z-index: 2;
     padding: 4rem 2rem;
     color: var(--header-text);
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 /* Container do conteúdo */
 .about-container {
-    max-width: 1000px;
+    max-width: 100%;
     margin: 0 auto;
 }
-
 /* Texto sobre */
 .about-text {
     text-align: center;
